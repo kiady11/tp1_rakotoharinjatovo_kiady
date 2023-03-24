@@ -21,12 +21,14 @@ import mg.itu.tp1_rakotoharinjatovo_kiady.entities.Discount;
 @Named(value = "customerDetailsBean")
 @ViewScoped
 public class CustomerDetailsBean implements Serializable {
-
     private int idCustomer;
     private Customer customer;
+    private List<Discount> discountList;
 
     @EJB
     private CustomerManager customerManager;
+    
+    @EJB
     private DiscountManager discountManager;
 
     public int getIdCustomer() {
@@ -64,7 +66,8 @@ public class CustomerDetailsBean implements Serializable {
     }
 
     public List<Discount> getDiscounts() {
-        return discountManager.getAllDiscounts();
+        discountList = discountManager.getAllDiscounts();   
+        return discountList; 
     }
 
     public CustomerDetailsBean() {

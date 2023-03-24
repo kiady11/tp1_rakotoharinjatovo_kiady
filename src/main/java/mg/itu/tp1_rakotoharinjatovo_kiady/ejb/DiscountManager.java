@@ -4,6 +4,7 @@
  */
 package mg.itu.tp1_rakotoharinjatovo_kiady.ejb;
 
+import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
@@ -14,6 +15,7 @@ import mg.itu.tp1_rakotoharinjatovo_kiady.entities.Discount;
  *
  * @author kiady
  */
+@Stateless
 public class DiscountManager {
 
     @PersistenceContext

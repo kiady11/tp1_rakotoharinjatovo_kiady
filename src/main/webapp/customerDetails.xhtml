@@ -37,13 +37,10 @@
                 <h:outputLabel value="Discount:" for="discount" />
                 <h:selectOneMenu id="discount" value="#{customerDetailsBean.customer.discount}" title="Discount" required="true" requiredMessage="The Discount field is required.">
                     <!-- TODO: update below reference to list of available items-->
-                    <f:selectItems value="#{fixme}"/>
+                    <f:selectItems var="item" value="#{customerDetailsBean.discounts}" itemLabel="#{item.code}"/>
                 </h:selectOneMenu>
-                <h:outputLabel value="Zip:" for="zip" />
-                <h:selectOneMenu id="zip" value="#{customerDetailsBean.customer.zip}" title="Zip" required="true" requiredMessage="The Zip field is required.">
-                    <!-- TODO: update below reference to list of available items-->
-                    <f:selectItems value="#{fixme}"/>
-                </h:selectOneMenu>
+
+
             </h:panelGrid>
         </h:form>
     </h:body>
