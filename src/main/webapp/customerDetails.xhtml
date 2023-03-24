@@ -11,8 +11,9 @@
         <title>Détails des clients</title>
     </h:head>
     <h:body>
-        <h:form>
-            <h1><h:outputText value="Create/Edit"/></h1>
+        <h:form rendered='#{customerDetailsBean.customer != null}'>
+            <h1><h:outputText value="Create/Edit" /></h1>
+            <h1><h:outputText value="Aucun client avec l'id #{customerDetailsBean.idCustomer} !" rendered='#{customerDetailsBean.customer == null}'/></h1>
             <h:panelGrid columns="2">
                 <h:outputLabel value="CustomerId:" for="customerId" />
                 <h:inputText id="customerId" value="#{customerDetailsBean.customer.customerId}" title="CustomerId" required="true" requiredMessage="The CustomerId field is required."/>
@@ -39,12 +40,10 @@
                     <!-- TODO: update below reference to list of available items-->
                     <f:selectItems var="item" value="#{customerDetailsBean.discounts}" itemLabel="#{item.code} : #{item.rate}%" itemValue="#{item}"/>
                 </h:selectOneMenu>
-                
-
-                <h:button id="back" value="Revenir à la liste" outcome="customerList"/>
                 <h:commandButton id="update" value="Enregistrer" action="#{customerDetailsBean.update}"/>
             </h:panelGrid>
             <h:messages/>
         </h:form>
+        <h:button id="back" value="Revenir à la liste" outcome="customerList"/>
     </h:body>
 </html>
